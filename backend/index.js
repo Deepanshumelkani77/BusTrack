@@ -27,3 +27,10 @@ const connectDB= async()=>{
 
 connectDB();
 //Vc3xdfgLbMKYt4ko
+
+
+
+
+//routes
+const userRoutes=require('./routes/User');
+app.use('/user',userRoutes);
