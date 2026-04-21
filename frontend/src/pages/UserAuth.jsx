@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { User, Mail, Lock, Eye, EyeOff, ArrowLeft, MapPin, Clock, Star, Shield } from 'lucide-react'
+import { useContext } from 'react'
+import { AppContext } from '../context/AppContext'
+
 
 const UserAuth = () => {
   const navigate = useNavigate()
@@ -14,6 +17,12 @@ const UserAuth = () => {
     password: '',
     confirmPassword: ''
   })
+ const [isSignup, setIsSignup] = useState(false);
+  const { signup } = useContext(AppContext);
+  const { login } = useContext(AppContext);
+
+
+
 
   useEffect(() => {
     setIsLoaded(true)
@@ -26,12 +35,30 @@ const UserAuth = () => {
     })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission logic here
-    console.log('Form submitted:', formData)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+  // ✅ Password match check (ONLY for signup)
+  if (!isLogin && formData.password !== formData.confirmPassword) {
+    alert("Passwords do not match");
+    return;
   }
 
+
+    try {
+      if (isSignup) {
+        await signup(formData.name, formData.email, formData.password);
+       
+        navigate("/");
+      } else {
+        await login(formData.email, formData.password);
+       
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Authentication error:", error);
+    }
+  };
   const toggleForm = () => {
     setIsLogin(!isLogin)
     setFormData({
@@ -223,7 +250,10 @@ const UserAuth = () => {
               <p className="text-gray-600">
                 {isLogin ? "Don't have an account?" : "Already have an account?"}{' '}
                 <button
-                  onClick={toggleForm}
+                onClick={() => {
+  toggleForm();
+  setIsSignup(!isSignup);
+}}
                   className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
                 >
                   {isLogin ? 'Sign up' : 'Sign in'}
