@@ -15,16 +15,7 @@ const DriverAuth = () => {
     name: '',
     email: '',
     password: '',
-    confirmPassword: '',
-    busNumber: '',
-    busType: '',
-    totalSeats: '',
-    licenseNumber: '',
-    route: '',
-    city: '',
-    busColor: '',
-    manufacturer: '',
-    year: ''
+    confirmPassword: ''
   })
 
   useEffect(() => {
@@ -62,16 +53,7 @@ const DriverAuth = () => {
       name: '',
       email: '',
       password: '',
-      confirmPassword: '',
-      busNumber: '',
-      busType: '',
-      totalSeats: '',
-      licenseNumber: '',
-      route: '',
-      city: '',
-      busColor: '',
-      manufacturer: '',
-      year: ''
+      confirmPassword: ''
     })
     setBusImage(null)
     setImagePreview(null)
@@ -104,7 +86,7 @@ const DriverAuth = () => {
           </button>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-md mx-auto">
           {/* Header */}
           <div className={`text-center mb-8 transition-all duration-1000 delay-300 transform ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="flex justify-center items-center mb-6">
@@ -129,311 +111,103 @@ const DriverAuth = () => {
               {/* Personal Information Section */}
               {!isLogin && (
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Personal Information</h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Full Name</label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Users className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <input
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                          placeholder="Enter your full name"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Email Address</label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Mail className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                          placeholder="Enter your email"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Password</label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <input
-                          type={showPassword ? 'text' : 'password'}
-                          name="password"
-                          value={formData.password}
-                          onChange={handleInputChange}
-                          className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                          placeholder="Enter your password"
-                          required
-                        />
-                        <button
-                          type="button"
-                          onClick={() => setShowPassword(!showPassword)}
-                          className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                        >
-                          {showPassword ? (
-                            <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
-                          ) : (
-                            <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Confirm Password</label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <input
-                          type={showConfirmPassword ? 'text' : 'password'}
-                          name="confirmPassword"
-                          value={formData.confirmPassword}
-                          onChange={handleInputChange}
-                          className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                          placeholder="Confirm your password"
-                          required
-                        />
-                        <button
-                          type="button"
-                          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                          className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                        >
-                          {showConfirmPassword ? (
-                            <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
-                          ) : (
-                            <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Login Form Fields */}
-              {isLogin && (
-                <div className="space-y-4">
                   <div className="space-y-2">
-                    <label className="text-gray-700 text-sm font-semibold">Email Address</label>
+                    <label className="text-gray-700 text-sm font-semibold">Full Name</label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Mail className="h-5 w-5 text-gray-400" />
+                        <Users className="h-5 w-5 text-gray-400" />
                       </div>
                       <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
+                        type="text"
+                        name="name"
+                        value={formData.name}
                         onChange={handleInputChange}
                         className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                        placeholder="Enter your email"
+                        placeholder="Enter your full name"
                         required
                       />
                     </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-gray-700 text-sm font-semibold">Password</label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Lock className="h-5 w-5 text-gray-400" />
-                      </div>
-                      <input
-                        type={showPassword ? 'text' : 'password'}
-                        name="password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                        placeholder="Enter your password"
-                        required
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                      >
-                        {showPassword ? (
-                          <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
-                        ) : (
-                          <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <label className="flex items-center space-x-2 text-gray-600 text-sm">
-                      <input
-                        type="checkbox"
-                        className="w-4 h-4 bg-gray-50 border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                      />
-                      <span>Remember me</span>
-                    </label>
-                    <button type="button" className="text-green-600 hover:text-green-700 text-sm font-medium transition-colors">
-                      Forgot password?
-                    </button>
                   </div>
                 </div>
               )}
 
-              {/* Bus Information Section (Signup only) */}
+              {/* Email Field */}
+              <div className="space-y-2">
+                <label className="text-gray-700 text-sm font-semibold">Email Address</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Password Field */}
+              <div className="space-y-2">
+                <label className="text-gray-700 text-sm font-semibold">Password</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
+                    placeholder="Enter your password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
+                    ) : (
+                      <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* Confirm Password Field (Signup only) */}
               {!isLogin && (
-                <div className="space-y-4 mt-6">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Bus Information</h3>
-                  
-                  {/* Bus Image Upload */}
-                  <div className="space-y-2">
-                    <label className="text-gray-700 text-sm font-semibold">Bus Image</label>
-                    <div className="flex items-center space-x-4">
-                      <div className="relative">
-                        {imagePreview ? (
-                          <img src={imagePreview} alt="Bus preview" className="w-24 h-24 object-cover rounded-lg" />
-                        ) : (
-                          <div className="w-24 h-24 bg-white/10 border-2 border-dashed border-white/20 rounded-lg flex items-center justify-center">
-                            <Camera className="h-8 w-8 text-gray-400" />
-                          </div>
-                        )}
-                      </div>
-                      <div>
-                        <input
-                          type="file"
-                          accept="image/*"
-                          onChange={handleImageChange}
-                          className="hidden"
-                          id="bus-image"
-                        />
-                        <label
-                          htmlFor="bus-image"
-                          className="cursor-pointer bg-green-100 hover:bg-green-200 text-green-700 px-4 py-2 rounded-lg border border-green-300 transition-all duration-300"
-                        >
-                          Upload Image
-                        </label>
-                        <p className="text-gray-500 text-xs mt-1">JPG, PNG up to 5MB</p>
-                      </div>
+                <div className="space-y-2">
+                  <label className="text-gray-700 text-sm font-semibold">Confirm Password</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Lock className="h-5 w-5 text-gray-400" />
                     </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Bus Number</label>
-                      <input
-                        type="text"
-                        name="busNumber"
-                        value={formData.busNumber}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                        placeholder="e.g., MH-12-AB-1234"
-                        required
-                      />
-                    </div>
-
-                                      </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Total Seats</label>
-                      <input
-                        type="number"
-                        name="totalSeats"
-                        value={formData.totalSeats}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                        placeholder="e.g., 45"
-                        min="1"
-                        max="60"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">License Number</label>
-                      <input
-                        type="text"
-                        name="licenseNumber"
-                        value={formData.licenseNumber}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                        placeholder="Enter license number"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  
-                  <div className="space-y-2">
-                    <label className="text-gray-700 text-sm font-semibold">City</label>
                     <input
-                      type="text"
-                      name="city"
-                      value={formData.city}
+                      type={showConfirmPassword ? 'text' : 'password'}
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                      placeholder="e.g., Mumbai"
+                      className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
+                      placeholder="Confirm your password"
                       required
                     />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Bus Color</label>
-                      <input
-                        type="text"
-                        name="busColor"
-                        value={formData.busColor}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                        placeholder="e.g., Blue"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Manufacturer</label>
-                      <input
-                        type="text"
-                        name="manufacturer"
-                        value={formData.manufacturer}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                        placeholder="e.g., Tata"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-gray-700 text-sm font-semibold">Year</label>
-                      <input
-                        type="number"
-                        name="year"
-                        value={formData.year}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
-                        placeholder="e.g., 2022"
-                        min="2000"
-                        max={new Date().getFullYear()}
-                        required
-                      />
-                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                    >
+                      {showConfirmPassword ? (
+                        <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
+                      ) : (
+                        <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
+                      )}
+                    </button>
                   </div>
                 </div>
               )}
