@@ -34,3 +34,5 @@ connectDB();
 //routes
 const userRoutes=require('./routes/User');
 app.use('/user',userRoutes);
+const driverRoutes=require('./routes/Driver');
+app.use('/driver',driverRoutes);

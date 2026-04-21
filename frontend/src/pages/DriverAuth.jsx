@@ -15,7 +15,8 @@ const DriverAuth = () => {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    licenseNumber: ''
   })
 
   useEffect(() => {
