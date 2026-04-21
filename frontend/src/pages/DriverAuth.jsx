@@ -9,7 +9,7 @@ const DriverAuth = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [busImage, setBusImage] = useState(null)
-  const [imagePreview, setImagePreview] = useState(null)
+  
   
   const [formData, setFormData] = useState({
     name: '',
@@ -29,17 +29,7 @@ const DriverAuth = () => {
     })
   }
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0]
-    if (file) {
-      setBusImage(file)
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setImagePreview(reader.result)
-      }
-      reader.readAsDataURL(file)
-    }
-  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -55,8 +45,7 @@ const DriverAuth = () => {
       password: '',
       confirmPassword: ''
     })
-    setBusImage(null)
-    setImagePreview(null)
+   
   }
 
   return (
