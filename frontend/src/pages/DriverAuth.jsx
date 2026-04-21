@@ -44,7 +44,8 @@ const DriverAuth = () => {
       name: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      licenseNumber: ''
     })
    
   }
@@ -198,6 +199,27 @@ const DriverAuth = () => {
                         <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
                       )}
                     </button>
+                  </div>
+                </div>
+              )}
+
+              {/* License Number Field (Signup only) */}
+              {!isLogin && (
+                <div className="space-y-2">
+                  <label className="text-gray-700 text-sm font-semibold">License Number</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Shield className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      name="licenseNumber"
+                      value={formData.licenseNumber}
+                      onChange={handleInputChange}
+                      className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 hover:bg-gray-100"
+                      placeholder="Enter your license number"
+                      required
+                    />
                   </div>
                 </div>
               )}
