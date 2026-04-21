@@ -66,6 +66,7 @@ const AppContextProvider = (props) => {
         name,  // Map fullName to username for backend
         email,
         password,
+        licenseNumber
         
       });
        alert("Signup successful! Please login.");

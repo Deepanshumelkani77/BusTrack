@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const driverSchema=mongoose.Scjema({
+const driverSchema=mongoose.Schema({
 
     name: {
     type: String,
