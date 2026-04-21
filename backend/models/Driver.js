@@ -2,6 +2,39 @@ const mongoose=require('mongoose');
 
 const driverSchema=mongoose.Scjema({
 
+    name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true
+  },
+
+  password: {
+    type: String,
+    required: true,
+    minlength: 6
+  },
+
+  licenseNumber: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+
+
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+
 })
 
 const Driver=mongoose.model('Driver',driverSchema);
