@@ -58,6 +58,43 @@ const AppContextProvider = (props) => {
   };
 
 
+// Signup
+  const driverSignup = async (name, email, password, licenseNumber) => {
+    
+    try {
+      const res = await axios.post(`http://localhost:5000/driver/signup`, {
+        name,  // Map fullName to username for backend
+        email,
+        password,
+        
+      });
+       alert("Signup successful! Please login.");
+    } catch (error) {
+       alert(error.response?.data?.message || "Signup failed");
+    }
+  };
+
+
+  // Login
+  const driverLogin = async (email, password) => {
+    try {
+      const response = await axios.post(`http://localhost:5000/driver/login`, {
+        email,
+        password,
+      });
+      
+      // Save to localStorage (automatically syncs to shop app)
+      localStorage.setItem("driverToken", response.data.driverToken);
+      localStorage.setItem("driver", JSON.stringify(response.data.driver));
+      
+      setUser(response.data.driver);
+      setToken(response.data.driverToken);
+     alert(`Welcome back, ${response.data.driver.name}`);
+    } catch (error) {
+      alert(error.response?.data?.message || "Login failed");
+    }
+  };
+
 
 
       const value = {
@@ -67,7 +104,9 @@ const AppContextProvider = (props) => {
    signup,
    login,
    token,
-   setToken
+   setToken,
+   driverSignup,
+    driverLogin
   };
 
   return (

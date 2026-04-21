@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Bus, Mail, Lock, Eye, EyeOff, ArrowLeft, Camera, Users, MapPin, Shield, Star, Navigation, TrendingUp } from 'lucide-react'
+import { useContext } from 'react'
+import { AppContext } from '../context/AppContext'
+
 
 const DriverAuth = () => {
   const navigate = useNavigate()
@@ -8,7 +11,7 @@ const DriverAuth = () => {
   const [isLogin, setIsLogin] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  const [busImage, setBusImage] = useState(null)
+ 
   
   
   const [formData, setFormData] = useState({
@@ -18,6 +21,11 @@ const DriverAuth = () => {
     confirmPassword: '',
     licenseNumber: ''
   })
+ const [isSignup, setIsSignup] = useState(false);
+  const { driverSignup } = useContext(AppContext);
+  const { driverLogin } = useContext(AppContext);
+
+
 
   useEffect(() => {
     setIsLoaded(true)
@@ -31,12 +39,32 @@ const DriverAuth = () => {
   }
 
 
+const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission logic here
-    console.log('Form submitted:', formData, busImage)
+  // ✅ Password match check (ONLY for signup)
+  if (!isLogin && formData.password !== formData.confirmPassword) {
+    alert("Passwords do not match");
+    return;
   }
+
+
+    try {
+      if (isSignup) {
+        await driverSignup(formData.name, formData.email, formData.password,formData.licenseNumber);
+       
+        navigate("/");
+      } else {
+        await driverLogin(formData.email, formData.password);
+       
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Authentication error:", error);
+    }
+  };
+
+
 
   const toggleForm = () => {
     setIsLogin(!isLogin)
@@ -238,7 +266,11 @@ const DriverAuth = () => {
               <p className="text-gray-600">
                 {isLogin ? "Don't have an account?" : "Already have an account?"}{' '}
                 <button
-                  onClick={toggleForm}
+                  onClick={() => {
+  toggleForm();
+  setIsSignup(!isSignup);
+}}
+   
                   className="text-green-600 hover:text-green-700 font-semibold transition-colors"
                 >
                   {isLogin ? 'Sign up' : 'Sign in'}
