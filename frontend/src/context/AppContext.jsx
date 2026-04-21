@@ -25,7 +25,7 @@ const AppContextProvider = (props) => {
   const signup = async (name, email, password) => {
     
     try {
-      const res = await axios.post(`/user/signup`, {
+      const res = await axios.post(`http://localhost:5000/user/signup`, {
         name,  // Map fullName to username for backend
         email,
         password,
@@ -40,7 +40,7 @@ const AppContextProvider = (props) => {
   // Login
   const login = async (email, password) => {
     try {
-      const response = await axios.post(`/user/login`, {
+      const response = await axios.post(`http://localhost:5000/user/login`, {
         email,
         password,
       });
