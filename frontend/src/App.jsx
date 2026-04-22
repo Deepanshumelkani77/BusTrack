@@ -7,6 +7,7 @@ import UserHome from './pages/userHome'
 import UserNavbar from './components/UserNavbar'
 import UserFooter from './components/UserFooter'
 import UserAbout from './pages/UserAbouth'
+import UserContact from './pages/UserContact'
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         </>
       } />
       <Route path="/about" element={<UserAbout />} />
+      <Route path="/contact" element={<UserContact />} />
     </Routes>
   )
 }
