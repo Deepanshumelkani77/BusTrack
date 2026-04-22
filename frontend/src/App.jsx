@@ -4,6 +4,8 @@ import RoleSelection from './pages/RoleSelection'
 import UserAuth from './pages/UserAuth'
 import DriverAuth from './pages/DriverAuth'
 import UserHome from './pages/userHome'
+import UserNavbar from './components/UserNavbar'
+import UserFooter from './components/UserFooter'
 
 const App = () => {
   return (
@@ -12,8 +14,13 @@ const App = () => {
       <Route path="/role-selection" element={<RoleSelection />} />
       <Route path="/user-auth" element={<UserAuth />} />
       <Route path="/driver-auth" element={<DriverAuth />} />
-      <Route path="/user-home" element={<UserHome />} />
-      {/* Add more routes here as we build them */}
+      <Route path="/user-home" element={
+        <>
+          <UserNavbar />
+          <UserHome />
+          <UserFooter />
+        </>
+      } />
     </Routes>
   )
 }

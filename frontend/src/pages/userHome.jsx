@@ -9,13 +9,13 @@ import City from '../components/City'
 const userHome = () => {
   return (
     <div>
-      <UserNavbar />
+   
       <Header />
       <Why />
      
       <Slider />
       <City/>
-      <UserFooter />
+    
     
       
     </div>
