@@ -1,58 +1,18 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Bus, User, LogOut, Settings, Menu, X } from 'lucide-react';
-import { AppContext } from '../context/AppContext';
+import React, { useState, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Menu, X, User, Settings, LogOut, Bus } from 'lucide-react'
 
 const UserNavbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const profileRef = useRef(null);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isProfileOpen, setIsProfileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const profileRef = useRef(null)
 
-  // Get user data and logout function from AppContext
-  const { user, logout, isAuthenticated } = useContext(AppContext);
-
-  // Close profile dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (profileRef.current && !profileRef.current.contains(event.target)) {
-        setIsProfileOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  // Add subtle shadow/blur on scroll
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const isActive = (path) => location.pathname === path;
-
-  // Lock body scroll when sidebar is open on mobile
-  useEffect(() => {
-    if (isMenuOpen) {
-      const original = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = original;
-      };
-    }
-  }, [isMenuOpen]);
-
-  const handleLogout = () => {
-    logout(); // Use logout function from AppContext
-    setIsProfileOpen(false);
-  };
+  // Mock functions for demo
+  const isActive = (path) => window.location.pathname === path
+  const isAuthenticated = () => false // Mock function
+  const user = { name: 'User', email: 'user@example.com' } // Mock user data
+  const handleLogout = () => console.log('Logout clicked')
 
   return (
     <nav className={`bg-[#0F172A] sticky top-0 z-50 border-b border-slate-700/50 transition-colors duration-300 ${
@@ -60,7 +20,7 @@ const UserNavbar = () => {
     }`}>
       <div className="w-full mx-auto px-4 sm:px-6 ">
         <div className="flex justify-between items-center h-16 lg:h-18">
-        
+          
           {/* Enhanced Logo - Same as Home.jsx */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-900 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-300 border border-slate-700/50">
@@ -275,7 +235,7 @@ const UserNavbar = () => {
                 className="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-700/50 font-semibold transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-              About
+                About
               </Link>
               <Link
                 to="/contact"
@@ -336,8 +296,7 @@ const UserNavbar = () => {
         </div>
       </div>
     </nav>
-  );
+  )
 }
-;
 
-export default UserNavbar;
+export default UserNavbar
