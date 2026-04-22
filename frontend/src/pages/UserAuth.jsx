@@ -49,11 +49,11 @@ const UserAuth = () => {
       if (isSignup) {
         await signup(formData.name, formData.email, formData.password);
        
-        navigate("/");
+        navigate("/user-home");
       } else {
         await login(formData.email, formData.password);
        
-        navigate("/");
+        navigate("/user-home");
       }
     } catch (error) {
       console.error("Authentication error:", error);
