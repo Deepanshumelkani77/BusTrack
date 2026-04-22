@@ -1,9 +1,12 @@
   import React from 'react'
   import { Bus, MapPin, Clock, Shield, Zap, Users, Sparkles, ArrowRight } from 'lucide-react'
+    import UserNavbar from '../components/UserNavbar'
+    import UserFooter from '../components/UserFooter'
 
   const UserAbout = () => {
   return (
-    
+<>
+ <UserNavbar />
     <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-white">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0F172A] via-slate-900 to-slate-800">
@@ -143,6 +146,9 @@
         .animate-fade-up { animation: fade-up .5s ease-out both; }
       `}</style>
     </div>
+  
+  <UserFooter />
+  </>
   )
 }
 

@@ -6,6 +6,7 @@ import DriverAuth from './pages/DriverAuth'
 import UserHome from './pages/userHome'
 import UserNavbar from './components/UserNavbar'
 import UserFooter from './components/UserFooter'
+import UserAbout from './pages/UserAbouth'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <UserFooter />
         </>
       } />
+      <Route path="/about" element={<UserAbout />} />
     </Routes>
   )
 }
