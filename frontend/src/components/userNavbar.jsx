@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Bus, User, LogOut, Settings, Menu, X } from 'lucide-react';
 import { AppContext } from '../context/AppContext';
 
-const userNavbar = () => {
+const UserNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -340,4 +340,4 @@ const userNavbar = () => {
 }
 ;
 
-export default userNavbar;
+export default UserNavbar;

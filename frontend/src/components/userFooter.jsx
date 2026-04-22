@@ -1,7 +1,7 @@
 import React from 'react'
-import { Bus, Mail, Phone, MapPin, Facebook, Instagram, Twitter, ArrowRight } from 'lucide-react'
+import { Bus, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 
-const userFooter = () => {
+const UserFooter = () => {
   return (
     <footer className="w-full bg-[#0F172A] text-slate-300 border-t border-slate-800">
       {/* Gradient top accent */}
@@ -30,13 +30,13 @@ const userFooter = () => {
             {/* Socials */}
             <div className="mt-5 flex items-center gap-3">
               <a href="#" className="inline-flex p-2 rounded-lg bg-white/5 ring-1 ring-white/10 hover:bg-white/10 transition-transform duration-200 hover:scale-105" aria-label="Facebook">
-                <Facebook className="w-4 h-4 text-white" />
+                <Bus className="w-4 h-4 text-white" />
               </a>
               <a href="#" className="inline-flex p-2 rounded-lg bg-white/5 ring-1 ring-white/10 hover:bg-white/10 transition-transform duration-200 hover:scale-105" aria-label="Instagram">
-                <Instagram className="w-4 h-4 text-white" />
+                <Mail className="w-4 h-4 text-white" />
               </a>
               <a href="#" className="inline-flex p-2 rounded-lg bg-white/5 ring-1 ring-white/10 hover:bg-white/10 transition-transform duration-200 hover:scale-105" aria-label="Twitter">
-                <Twitter className="w-4 h-4 text-white" />
+                <Phone className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
@@ -130,4 +130,4 @@ const userFooter = () => {
   )
 }
 
-export default userFooter
+export default UserFooter
