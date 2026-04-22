@@ -22,6 +22,12 @@ import lucknow from "./lucknow.jpg";
 import indore from "./indore.jpg";
 import punjab from "./punjab.jpg";
 import chennai from "./chennai.jpg";
+import d1 from "./d1.jpg";
+import d2 from "./d2.jpg";
+import d3 from "./d3.jpg";
+import d4 from "./d4.jpg";
+import d5 from "./d5.jpg";
+import d6 from "./d6.jpg";
 
 
 export const assets = {
@@ -47,7 +53,13 @@ export const assets = {
     lucknow,
     indore,
     punjab,
-    chennai
+    chennai,
+     d1,
+    d2,
+    d3,
+    d4,
+    d5,
+    d6,
 
 }
 
