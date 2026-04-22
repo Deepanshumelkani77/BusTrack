@@ -1,18 +1,20 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Menu, X, User, Settings, LogOut, Bus } from 'lucide-react'
+import { AppContext } from '../context/AppContext'
 
 const UserNavbar = () => {
+  const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isProfileOpen, setIsProfileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const profileRef = useRef(null)
+  
+  const { logout, user, token } = useContext(AppContext)
 
-  // Mock functions for demo
+  // Functions for demo
   const isActive = (path) => window.location.pathname === path
-  const isAuthenticated = () => false // Mock function
-  const user = { name: 'User', email: 'user@example.com' } // Mock user data
-  const handleLogout = () => console.log('Logout clicked')
+  const isAuthenticated = () => !!token
 
   return (
     <nav className={`bg-[#0F172A] sticky top-0 z-50 border-b border-slate-700/50 transition-colors duration-300 ${
@@ -22,7 +24,7 @@ const UserNavbar = () => {
         <div className="flex justify-between items-center h-16 lg:h-18">
           
           {/* Enhanced Logo - Same as Home.jsx */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/user-home" className="flex items-center gap-3 group">
             <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-900 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-300 border border-slate-700/50">
               <svg className="w-6 h-6 lg:w-7 lg:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M4 16c0 .88.39 1.67 1 2.22V20a1 1 0 001 1h1a1 1 0 001-1v-1h8v1a1 1 0 001 1h1a1 1 0 001-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/>
@@ -38,7 +40,7 @@ const UserNavbar = () => {
 
           {/* Center Navigation */}
           <div className=" text-xl hidden lg:flex items-center gap-20 absolute left-1/2 transform -translate-x-1/2">
-            <Link to="/" className={`relative font-semibold transition-all duration-300 group ${isActive('/') ? 'text-white' : 'text-slate-300 hover:text-white'}`}>
+            <Link to="/user-home" className={`relative font-semibold transition-all duration-300 group ${isActive('/') ? 'text-white' : 'text-slate-300 hover:text-white'}`}>
               <span>Home</span>
               <div className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-white to-slate-200 transition-all duration-300 ${isActive('/') ? 'w-full' : 'w-0 group-hover:w-full'}`}></div>
             </Link>
@@ -125,7 +127,11 @@ const UserNavbar = () => {
                         </Link>
                         <hr className="my-2 border-slate-200/50" />
                         <button
-                          onClick={handleLogout}
+                          onClick={() => {
+                            logout();
+                            setIsProfileOpen(false);
+                            navigate("/");
+                          }}
                           className="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-200 w-full text-left"
                         >
                           <LogOut className="w-4 h-4" />
@@ -272,8 +278,9 @@ const UserNavbar = () => {
                   </Link>
                   <button
                     onClick={() => {
-                      handleLogout();
+                      logout();
                       setIsMenuOpen(false);
+                      navigate("/");
                     }}
                     className="block w-full text-left px-4 py-3 text-red-400 hover:text-red-300 hover:bg-red-900/20 font-semibold transition-all duration-200"
                   >

@@ -1,13 +1,10 @@
-
 import axios from "axios";
-import {useState} from "react";
-
+import {useState, useEffect} from "react";
 import { createContext } from "react";
 
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
-
 
     
 
@@ -16,6 +13,23 @@ const AppContextProvider = (props) => {
 const [driver, setDriver] = useState(null);
 const [driverToken, setDriverToken] = useState(null);
 
+// Initialize authentication state from localStorage
+useEffect(() => {
+  const savedToken = localStorage.getItem("token");
+  const savedUser = localStorage.getItem("user");
+  const savedDriverToken = localStorage.getItem("driverToken");
+  const savedDriver = localStorage.getItem("driver");
+
+  if (savedToken && savedUser) {
+    setToken(savedToken);
+    setUser(JSON.parse(savedUser));
+  }
+  
+  if (savedDriverToken && savedDriver) {
+    setDriverToken(savedDriverToken);
+    setDriver(JSON.parse(savedDriver));
+  }
+}, []);
 
   // Signup
   const signup = async (name, email, password) => {
@@ -92,13 +106,11 @@ const [driverToken, setDriverToken] = useState(null);
     }
   };
 
-
-    const logout = () => {
+const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
     setToken(null);
-   
   };
 
 
