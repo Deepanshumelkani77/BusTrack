@@ -9,16 +9,12 @@ export const AppContext = createContext();
 const AppContextProvider = (props) => {
 
 
-    // Restore user from localStorage (shared across frontend and shop on same domain)
-  const storedUser = localStorage.getItem("user");
-  const storedToken = localStorage.getItem("token");
+    
 
-  const initialUser = storedUser && storedUser !== "undefined" ? JSON.parse(storedUser) : null;
-  const initialToken = storedToken || null;
-
-  const [user, setUser] = useState(initialUser);
-  const [token, setToken] = useState(initialToken);
-
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
+const [driver, setDriver] = useState(null);
+const [driverToken, setDriverToken] = useState(null);
 
 
   // Signup
@@ -97,6 +93,24 @@ const AppContextProvider = (props) => {
   };
 
 
+    const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser(null);
+    setToken(null);
+   
+  };
+
+
+    const driverLogout = () => {
+    localStorage.removeItem("driverToken");
+    localStorage.removeItem("driver");
+    setUser(null);
+    setToken(null);
+    
+  };
+
+
 
       const value = {
    
@@ -107,7 +121,14 @@ const AppContextProvider = (props) => {
    token,
    setToken,
    driverSignup,
-    driverLogin
+    driverLogin,
+    logout,
+    driverLogout,
+    driver,
+    setDriver,
+
+
+    
   };
 
   return (
