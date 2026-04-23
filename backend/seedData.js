@@ -14,7 +14,8 @@ const busData = [
     busColor: "white",
     manufacturer: "tata",
     status: "active",
-image:"https://i.pinimg.com/1200x/90/a7/e4/90a7e4877354c8dd2171497c39d81eff.jpg"
+image:
+"https://i.pinimg.com/1200x/56/ef/93/56ef9366dd3bbf3b72214e577a6d7199.jpg"
   },
   {
     busNumber: "HW-02-CD-5678",
