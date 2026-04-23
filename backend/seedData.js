@@ -13,7 +13,8 @@ const busData = [
     city: "haldwani",
     busColor: "white",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+image:"https://i.pinimg.com/1200x/90/a7/e4/90a7e4877354c8dd2171497c39d81eff.jpg"
   },
   {
     busNumber: "HW-02-CD-5678",
@@ -23,7 +24,9 @@ const busData = [
     city: "haldwani",
     busColor: "blue",
     manufacturer: "ashok leyland",
-    status: "active"
+    status: "active",
+    image:
+"https://i.pinimg.com/1200x/90/a7/e4/90a7e4877354c8dd2171497c39d81eff.jpg"
   },
   {
     busNumber: "HW-03-EF-9012",
@@ -33,7 +36,8 @@ const busData = [
     city: "haldwani",
     busColor: "red",
     manufacturer: "volvo",
-    status: "active"
+    status: "active",
+    image:"https://i.pinimg.com/736x/b0/b6/2b/b0b62b1e32d31bdb2c403b0bd06f66ee.jpg"
   },
   {
     busNumber: "HW-04-GH-3456",
@@ -43,7 +47,8 @@ const busData = [
     city: "haldwani",
     busColor: "green",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+    image:"https://i.pinimg.com/736x/3e/a6/94/3ea69419587fdf513f9bc21a3bd77072.jpg"
   },
   {
     busNumber: "HW-05-IJ-7890",
@@ -53,7 +58,8 @@ const busData = [
     city: "haldwani",
     busColor: "yellow",
     manufacturer: "ashok leyland",
-    status: "inactive"
+    status: "inactive",
+    image:"https://i.pinimg.com/736x/15/61/e9/1561e9ee9da9e2133b3b4560300aaadd.jpg"
   },
   {
     busNumber: "HW-06-KL-2345",
@@ -63,7 +69,8 @@ const busData = [
     city: "haldwani",
     busColor: "white",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+    image:"https://i.pinimg.com/736x/73/10/0b/73100bc619c9d10d3e693b38291b075c.jpg"
   },
   {
     busNumber: "HW-07-MN-6789",
@@ -73,7 +80,8 @@ const busData = [
     city: "haldwani",
     busColor: "silver",
     manufacturer: "volvo",
-    status: "active"
+    status: "active",
+    image:"https://i.pinimg.com/1200x/c2/38/35/c2383536d6b5e70f91baaec8a79a1307.jpg"
   },
   {
     busNumber: "HW-08-OP-0123",
@@ -83,7 +91,9 @@ const busData = [
     city: "haldwani",
     busColor: "orange",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+    image:
+"https://i.pinimg.com/1200x/c2/38/35/c2383536d6b5e70f91baaec8a79a1307.jpg"
   },
   {
     busNumber: "HW-09-QR-4567",
@@ -93,7 +103,10 @@ const busData = [
     city: "haldwani",
     busColor: "black",
     manufacturer: "ashok leyland",
-    status: "active"
+    status: "active",
+    
+image:
+"https://i.pinimg.com/736x/3e/a6/94/3ea69419587fdf513f9bc21a3bd77072.jpg"
   },
   {
     busNumber: "HW-10-ST-8901",
@@ -103,7 +116,10 @@ const busData = [
     city: "haldwani",
     busColor: "white",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+    
+image:
+"https://i.pinimg.com/736x/cf/c5/41/cfc541f50a8c3df730d3d578c90e94f7.jpg"
   },
   
   // Delhi Buses (10)
@@ -115,7 +131,10 @@ const busData = [
     city: "delhi",
     busColor: "white",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+    
+image:
+"https://i.pinimg.com/736x/15/61/e9/1561e9ee9da9e2133b3b4560300aaadd.jpg"
   },
   {
     busNumber: "DL-02-CD-5678",
@@ -125,7 +144,10 @@ const busData = [
     city: "delhi",
     busColor: "blue",
     manufacturer: "ashok leyland",
-    status: "active"
+    status: "active",
+    
+image:
+"https://i.pinimg.com/1200x/49/e6/01/49e60113d1c24142b1bddf867a902dfb.jpg"
   },
   {
     busNumber: "DL-03-EF-9012",
@@ -135,7 +157,10 @@ const busData = [
     city: "delhi",
     busColor: "red",
     manufacturer: "volvo",
-    status: "inactive"
+    status: "inactive",
+    
+image:
+"https://i.pinimg.com/1200x/56/ef/93/56ef9366dd3bbf3b72214e577a6d7199.jpg"
   },
   {
     busNumber: "DL-04-GH-3456",
@@ -145,7 +170,10 @@ const busData = [
     city: "delhi",
     busColor: "green",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+    
+image:
+"https://i.pinimg.com/736x/b0/b6/2b/b0b62b1e32d31bdb2c403b0bd06f66ee.jpg"
   },
   {
     busNumber: "DL-05-IJ-7890",
@@ -155,7 +183,9 @@ const busData = [
     city: "delhi",
     busColor: "yellow",
     manufacturer: "ashok leyland",
-    status: "active"
+    status: "active",
+    image:
+"https://i.pinimg.com/736x/73/10/0b/73100bc619c9d10d3e693b38291b075c.jpg"
   },
   {
     busNumber: "DL-06-KL-2345",
@@ -165,7 +195,9 @@ const busData = [
     city: "delhi",
     busColor: "white",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+    image:
+"https://i.pinimg.com/736x/cf/c5/41/cfc541f50a8c3df730d3d578c90e94f7.jpg"
   },
   {
     busNumber: "DL-07-MN-6789",
@@ -175,7 +207,9 @@ const busData = [
     city: "delhi",
     busColor: "silver",
     manufacturer: "volvo",
-    status: "active"
+    status: "active",
+    image:
+"https://i.pinimg.com/1200x/fb/bb/e0/fbbbe04361e52b88c0865c54fa711ac7.jpg"
   },
   {
     busNumber: "DL-08-OP-0123",
@@ -185,7 +219,9 @@ const busData = [
     city: "delhi",
     busColor: "orange",
     manufacturer: "tata",
-    status: "active"
+    status: "active",
+    image:
+"https://i.pinimg.com/1200x/49/e6/01/49e60113d1c24142b1bddf867a902dfb.jpg"
   },
   {
     busNumber: "DL-09-QR-4567",
@@ -195,18 +231,10 @@ const busData = [
     city: "delhi",
     busColor: "black",
     manufacturer: "ashok leyland",
-    status: "active"
+    status: "active",
+    image:
+"https://i.pinimg.com/1200x/56/ef/93/56ef9366dd3bbf3b72214e577a6d7199.jpg"
   },
-  {
-    busNumber: "DL-10-ST-8901",
-    busType: "Non-AC Standard",
-    totalSeats: 32,
-    currentOccupancy: 0,
-    city: "delhi",
-    busColor: "white",
-    manufacturer: "tata",
-    status: "active"
-  }
 ];
 
 // Function to seed data

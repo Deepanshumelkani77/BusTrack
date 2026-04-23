@@ -47,7 +47,7 @@ const busSchema=mongoose.Schema({
     trim: true
   },
 
-  busImage: {
+  image: {
     type: String   // Cloudinary URL
   },
  status:{
