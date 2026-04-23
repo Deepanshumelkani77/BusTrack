@@ -18,37 +18,11 @@ const DriverBus = () => {
 
   const fetchBuses = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/buses')
+      const response = await axios.get('http://localhost:5000/bus')
       setBuses(response.data)
     } catch (error) {
       console.error('Error fetching buses:', error)
-      // Fallback to dummy data if API fails
-      setBuses([
-        {
-          _id: '1',
-          busNumber: 'HW-01-AB-1234',
-          busType: 'AC Deluxe',
-          totalSeats: 40,
-          currentOccupancy: 0,
-          city: 'haldwani',
-          busColor: 'white',
-          manufacturer: 'tata',
-          status: 'active',
-          image: 'https://i.pinimg.com/1200x/90/a7/e4/90a7e4877354c8dd2171497c39d81eff.jpg'
-        },
-        {
-          _id: '2',
-          busNumber: 'DL-02-CD-5678',
-          busType: 'Non-AC Standard',
-          totalSeats: 35,
-          currentOccupancy: 0,
-          city: 'delhi',
-          busColor: 'blue',
-          manufacturer: 'ashok leyland',
-          status: 'active',
-          image: 'https://i.pinimg.com/1200x/49/e6/01/49e60113d1c24142b1bddf867a902dfb.jpg'
-        }
-      ])
+   
     } finally {
       setLoading(false)
     }
