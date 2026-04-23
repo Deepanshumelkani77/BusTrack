@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
       } else {
         await driverLogin(formData.email, formData.password);
        
-        navigate("/");
+        navigate("/driver-bus");
       }
     } catch (error) {
       console.error("Authentication error:", error);

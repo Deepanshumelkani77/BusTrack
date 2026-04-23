@@ -4,6 +4,7 @@ import RoleSelection from './pages/RoleSelection'
 import UserAuth from './pages/UserAuth'
 import DriverAuth from './pages/DriverAuth'
 import UserHome from './pages/userHome'
+import DriverBus from './pages/DriverBus'
 import UserNavbar from './components/UserNavbar'
 import UserFooter from './components/UserFooter'
 import UserAbout from './pages/UserAbouth'
@@ -16,6 +17,7 @@ const App = () => {
       <Route path="/role-selection" element={<RoleSelection />} />
       <Route path="/user-auth" element={<UserAuth />} />
       <Route path="/driver-auth" element={<DriverAuth />} />
+      <Route path="/driver-bus" element={<DriverBus />} />
       <Route path="/user-home" element={
         <>
           <UserNavbar />
