@@ -44,6 +44,7 @@ useEffect(() => {
        alert("Signup successful! Please login.");
     } catch (error) {
        alert(error.response?.data?.message || "Signup failed");
+       throw error; // Re-throw error for proper handling in components
     }
   };
 
@@ -64,6 +65,7 @@ useEffect(() => {
      alert(`Welcome back, ${response.data.user.name}`);
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
+      throw error; // Re-throw error for proper handling in components
     }
   };
 
@@ -82,6 +84,7 @@ useEffect(() => {
        alert("Signup successful! Please login.");
     } catch (error) {
        alert(error.response?.data?.message || "Signup failed");
+       throw error; // Re-throw error for proper handling in components
     }
   };
 
@@ -98,11 +101,12 @@ useEffect(() => {
       localStorage.setItem("driverToken", response.data.driverToken);
       localStorage.setItem("driver", JSON.stringify(response.data.driver));
       
-      setUser(response.data.driver);
-      setToken(response.data.driverToken);
+      setDriver(response.data.driver);
+      setDriverToken(response.data.driverToken);
      alert(`Welcome back, ${response.data.driver.name}`);
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
+      throw error; // Re-throw error for proper handling in components
     }
   };
 

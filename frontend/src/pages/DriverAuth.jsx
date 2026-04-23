@@ -52,15 +52,15 @@ const handleSubmit = async (e) => {
     try {
       if (isSignup) {
         await driverSignup(formData.name, formData.email, formData.password,formData.licenseNumber);
-       
-        navigate("/");
+        alert("Driver signup successful! Please login.");
+        setIsLogin(true);
       } else {
         await driverLogin(formData.email, formData.password);
-       
         navigate("/driver-bus");
       }
     } catch (error) {
       console.error("Authentication error:", error);
+      alert(error.response?.data?.message || "Invalid credentials. Please try again.");
     }
   };
 

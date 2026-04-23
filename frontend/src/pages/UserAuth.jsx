@@ -48,15 +48,15 @@ const UserAuth = () => {
     try {
       if (isSignup) {
         await signup(formData.name, formData.email, formData.password);
-       
-        navigate("/user-home");
+        alert("Signup successful! Please login.");
+        setIsLogin(true);
       } else {
         await login(formData.email, formData.password);
-       
         navigate("/user-home");
       }
     } catch (error) {
       console.error("Authentication error:", error);
+      alert(error.response?.data?.message || "Invalid credentials. Please try again.");
     }
   };
   const toggleForm = () => {
