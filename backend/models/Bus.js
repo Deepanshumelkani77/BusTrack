@@ -16,16 +16,21 @@ const busSchema=mongoose.Schema({
     unique: true,
     trim: true
   },
+    busType: {
+    type: String,
+    default: "Normal"
+  },
+
 
   totalSeats: {
     type: Number,
     required: true
   },
+   currentOccupancy:{
+    type: Number,
+    default: 0
+   },
 
-  busType: {
-    type: String,
-    default: "Normal"
-  },
 
   city: {
     type: String,
@@ -43,14 +48,14 @@ const busSchema=mongoose.Schema({
     trim: true
   },
 
-  year: {
-    type: Number
-  },
-
   busImage: {
     type: String   // Cloudinary URL
   },
-
+ status:{
+type:String,  
+enum:["active","inactive"],
+ }
+ ,
   createdAt: {
     type: Date,
     default: Date.now
