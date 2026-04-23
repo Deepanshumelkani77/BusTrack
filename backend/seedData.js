@@ -4,144 +4,188 @@ const mongoURI="mongodb://deepumelkani123_db_user:Dev7777@ac-ghsi0ai-shard-00-00
 
 // Dummy Bus Data for Seeding
 const busData = [
+  // Haldwani Buses (10)
+  {
+    busNumber: "HW-01-AB-1234",
+    busType: "AC Deluxe",
+    totalSeats: 40,
+    city: "haldwani",
+    busColor: "white",
+    manufacturer: "tata",
+    status: "active"
+  },
+  {
+    busNumber: "HW-02-CD-5678",
+    busType: "Non-AC Standard",
+    totalSeats: 35,
+    city: "haldwani",
+    busColor: "blue",
+    manufacturer: "ashok leyland",
+    status: "active"
+  },
+  {
+    busNumber: "HW-03-EF-9012",
+    busType: "AC Luxury",
+    totalSeats: 45,
+    city: "haldwani",
+    busColor: "red",
+    manufacturer: "volvo",
+    status: "active"
+  },
+  {
+    busNumber: "HW-04-GH-3456",
+    busType: "Electric Bus",
+    totalSeats: 50,
+    city: "haldwani",
+    busColor: "green",
+    manufacturer: "tata",
+    status: "active"
+  },
+  {
+    busNumber: "HW-05-IJ-7890",
+    busType: "AC Deluxe",
+    totalSeats: 38,
+    city: "haldwani",
+    busColor: "yellow",
+    manufacturer: "ashok leyland",
+    status: "maintenance"
+  },
+  {
+    busNumber: "HW-06-KL-2345",
+    busType: "Non-AC Standard",
+    totalSeats: 42,
+    city: "haldwani",
+    busColor: "white",
+    manufacturer: "tata",
+    status: "active"
+  },
+  {
+    busNumber: "HW-07-MN-6789",
+    busType: "AC Luxury",
+    totalSeats: 48,
+    city: "haldwani",
+    busColor: "silver",
+    manufacturer: "volvo",
+    status: "active"
+  },
+  {
+    busNumber: "HW-08-OP-0123",
+    busType: "Electric Bus",
+    totalSeats: 36,
+    city: "haldwani",
+    busColor: "orange",
+    manufacturer: "tata",
+    status: "active"
+  },
+  {
+    busNumber: "HW-09-QR-4567",
+    busType: "AC Deluxe",
+    totalSeats: 44,
+    city: "haldwani",
+    busColor: "black",
+    manufacturer: "ashok leyland",
+    status: "active"
+  },
+  {
+    busNumber: "HW-10-ST-8901",
+    busType: "Non-AC Standard",
+    totalSeats: 32,
+    city: "haldwani",
+    busColor: "white",
+    manufacturer: "tata",
+    status: "active"
+  },
+  
+  // Delhi Buses (10)
   {
     busNumber: "DL-01-AB-1234",
     busType: "AC Deluxe",
     totalSeats: 40,
-    currentOccupancy: 25,
-  city:"haldwani",
+    city: "delhi",
     busColor: "white",
-     manufacturer:"tata",
-    status: "active",
-  
-    
-  
-    },
-    schedule: {
-      startTime: "06:00",
-      endTime: "22:00",
-      frequency: "15 minutes",
-      peakHours: ["08:00-10:00", "17:00-19:00"]
-    },
-    amenities: ["WiFi", "AC", "Charging Ports", "Emergency Exit"],
-    lastUpdated: new Date()
+    manufacturer: "tata",
+    status: "active"
   },
   {
     busNumber: "DL-02-CD-5678",
     busType: "Non-AC Standard",
     totalSeats: 35,
-    currentOccupancy: 18,
-    driverName: "Amit Sharma",
-    driverPhone: "+91-9876543211",
-    licenseNumber: "DL-02-2023-000456",
-    status: "active",
-    currentLocation: {
-      latitude: 28.7041,
-      longitude: 77.1025,
-      address: "Karol Bagh, New Delhi"
-    },
-    route: {
-      routeId: "route-002",
-      routeName: "Karol Bagh - Nehru Place",
-      startLocation: "Karol Bagh",
-      endLocation: "Nehru Place",
-      stops: [
-        { name: "Karol Bagh", latitude: 28.7041, longitude: 77.1025, arrivalTime: "06:30" },
-        { name: "Paharganj", latitude: 28.6440, longitude: 77.2120, arrivalTime: "06:45" },
-        { name: "Jor Bagh", latitude: 28.6340, longitude: 77.2020, arrivalTime: "07:00" },
-        { name: "AIIMS", latitude: 28.5660, longitude: 77.2170, arrivalTime: "07:15" },
-        { name: "South Extension", latitude: 28.5760, longitude: 77.2070, arrivalTime: "07:30" },
-        { name: "Nehru Place", latitude: 28.5860, longitude: 77.2020, arrivalTime: "07:45" }
-      ],
-      totalDistance: 18.7,
-      estimatedTime: 60
-    },
-    schedule: {
-      startTime: "06:30",
-      endTime: "21:30",
-      frequency: "20 minutes",
-      peakHours: ["09:00-11:00", "18:00-20:00"]
-    },
-    amenities: ["WiFi", "Emergency Exit"],
-    lastUpdated: new Date()
+    city: "delhi",
+    busColor: "blue",
+    manufacturer: "ashok leyland",
+    status: "active"
   },
   {
     busNumber: "DL-03-EF-9012",
     busType: "AC Luxury",
     totalSeats: 45,
-    currentOccupancy: 32,
-    driverName: "Vikram Singh",
-    driverPhone: "+91-9876543212",
-    licenseNumber: "DL-03-2023-000789",
-    status: "maintenance",
-    currentLocation: {
-      latitude: 28.5355,
-      longitude: 77.2550,
-      address: "Noida Sector 18, Noida"
-    },
-    route: {
-      routeId: "route-003",
-      routeName: "Noida Sector 18 - Gurgaon",
-      startLocation: "Noida Sector 18",
-      endLocation: "Gurgaon Sector 14",
-      stops: [
-        { name: "Noida Sector 18", latitude: 28.5355, longitude: 77.2550, arrivalTime: "07:00" },
-        { name: "Noida Sector 15", latitude: 28.5455, longitude: 77.2450, arrivalTime: "07:15" },
-        { name: "Noida Sector 12", latitude: 28.5555, longitude: 77.2350, arrivalTime: "07:30" },
-        { name: "DND Flyway", latitude: 28.5755, longitude: 77.2250, arrivalTime: "07:45" },
-        { name: "Gurgaon Sector 18", latitude: 28.5855, longitude: 77.2150, arrivalTime: "08:00" },
-        { name: "Gurgaon Sector 14", latitude: 28.5955, longitude: 77.2050, arrivalTime: "08:15" }
-      ],
-      totalDistance: 35.2,
-      estimatedTime: 90
-    },
-    schedule: {
-      startTime: "07:00",
-      endTime: "21:00",
-      frequency: "25 minutes",
-      peakHours: ["08:00-10:00", "17:00-19:00"]
-    },
-    amenities: ["WiFi", "AC", "Charging Ports", "Entertainment System", "Emergency Exit"],
-    lastUpdated: new Date()
+    city: "delhi",
+    busColor: "red",
+    manufacturer: "volvo",
+    status: "maintenance"
   },
   {
     busNumber: "DL-04-GH-3456",
     busType: "Electric Bus",
     totalSeats: 50,
-    currentOccupancy: 28,
-    driverName: "Priya Patel",
-    driverPhone: "+91-9876543213",
-    licenseNumber: "DL-04-2023-000234",
-    status: "active",
-    currentLocation: {
-      latitude: 28.6280,
-      longitude: 77.3770,
-      address: "East Delhi, New Delhi"
-    },
-    route: {
-      routeId: "route-004",
-      routeName: "East Delhi - Central Delhi",
-      startLocation: "East Delhi",
-      endLocation: "Central Delhi",
-      stops: [
-        { name: "East Delhi", latitude: 28.6280, longitude: 77.3770, arrivalTime: "06:00" },
-        { name: "Laxmi Nagar", latitude: 28.6180, longitude: 77.3670, arrivalTime: "06:20" },
-        { name: "Preet Vihar", latitude: 28.6080, longitude: 77.3570, arrivalTime: "06:40" },
-        { name: "Yamuna Vihar", latitude: 28.5980, longitude: 77.3470, arrivalTime: "07:00" },
-        { name: "Shahdara", latitude: 28.6880, longitude: 77.3870, arrivalTime: "07:20" },
-        { name: "Central Delhi", latitude: 28.6780, longitude: 77.3970, arrivalTime: "07:40" }
-      ],
-      totalDistance: 25.8,
-      estimatedTime: 80
-    },
-    schedule: {
-      startTime: "06:00",
-      endTime: "22:30",
-      frequency: "12 minutes",
-      peakHours: ["07:00-09:00", "17:00-19:00"]
-    },
-    amenities: ["WiFi", "AC", "Charging Ports", "Wheelchair Access", "Emergency Exit"],
-    lastUpdated: new Date()
+    city: "delhi",
+    busColor: "green",
+    manufacturer: "tata",
+    status: "active"
+  },
+  {
+    busNumber: "DL-05-IJ-7890",
+    busType: "AC Deluxe",
+    totalSeats: 38,
+    city: "delhi",
+    busColor: "yellow",
+    manufacturer: "ashok leyland",
+    status: "active"
+  },
+  {
+    busNumber: "DL-06-KL-2345",
+    busType: "Non-AC Standard",
+    totalSeats: 42,
+    city: "delhi",
+    busColor: "white",
+    manufacturer: "tata",
+    status: "active"
+  },
+  {
+    busNumber: "DL-07-MN-6789",
+    busType: "AC Luxury",
+    totalSeats: 48,
+    city: "delhi",
+    busColor: "silver",
+    manufacturer: "volvo",
+    status: "active"
+  },
+  {
+    busNumber: "DL-08-OP-0123",
+    busType: "Electric Bus",
+    totalSeats: 36,
+    city: "delhi",
+    busColor: "orange",
+    manufacturer: "tata",
+    status: "active"
+  },
+  {
+    busNumber: "DL-09-QR-4567",
+    busType: "AC Deluxe",
+    totalSeats: 44,
+    city: "delhi",
+    busColor: "black",
+    manufacturer: "ashok leyland",
+    status: "active"
+  },
+  {
+    busNumber: "DL-10-ST-8901",
+    busType: "Non-AC Standard",
+    totalSeats: 32,
+    city: "delhi",
+    busColor: "white",
+    manufacturer: "tata",
+    status: "active"
   }
 ];
 

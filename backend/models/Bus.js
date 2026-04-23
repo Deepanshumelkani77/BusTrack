@@ -6,8 +6,7 @@ const busSchema=mongoose.Schema({
 
  driver: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Driver",
-    required: true
+    ref: "Driver"
   },
 
   busNumber: {
