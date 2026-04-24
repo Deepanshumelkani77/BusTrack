@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import {useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { User, Bus, MapPin, Clock, Shield, Star, ArrowRight, Users, Navigation, TrendingUp } from 'lucide-react'
 

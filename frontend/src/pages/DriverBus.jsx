@@ -7,7 +7,6 @@ const DriverBus = () => {
   const navigate = useNavigate()
   const [buses, setBuses] = useState([])
   const [loading, setLoading] = useState(true)
-  const [selectedBus, setSelectedBus] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [filterCity, setFilterCity] = useState('all')
   const [filterStatus, setFilterStatus] = useState('all')
@@ -39,17 +38,6 @@ const DriverBus = () => {
     }
   }
 
-  const handleBusSelect = (bus) => {
-    setSelectedBus(bus)
-  }
-
-  const handleStartTrip = () => {
-    if (selectedBus) {
-      // Navigate to driver dashboard with selected bus
-      navigate('/driver-dashboard', { state: { selectedBus } })
-    }
-  }
-
   const filteredBuses = buses.filter(bus => {
     const matchesSearch = bus.busNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          bus.busType.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -61,12 +49,7 @@ const DriverBus = () => {
 
   const BusCard = ({ bus }) => (
     <div
-      className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 ${
-        selectedBus?._id === bus._id 
-          ? 'border-blue-500 shadow-blue-200' 
-          : 'border-transparent hover:border-gray-200'
-      }`}
-      onClick={() => handleBusSelect(bus)}
+      className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-gray-200"
     >
       <div className="relative">
         <img 
@@ -81,11 +64,6 @@ const DriverBus = () => {
         }`}>
           {bus.status === 'active' ? 'Available' : 'Inactive'}
         </div>
-        {selectedBus?._id === bus._id && (
-          <div className="absolute top-4 left-4 bg-blue-500 text-white p-2 rounded-full">
-            <CheckCircle className="w-5 h-5" />
-          </div>
-        )}
       </div>
       
       <div className="p-6">
@@ -128,9 +106,7 @@ const DriverBus = () => {
             <Clock className="w-4 h-4 mr-1" />
             <span>Ready for trip</span>
           </div>
-          <ChevronRight className={`w-5 h-5 transition-colors ${
-            selectedBus?._id === bus._id ? 'text-blue-500' : 'text-gray-400'
-          }`} />
+          <ChevronRight className="w-5 h-5 text-gray-400" />
         </div>
       </div>
     </div>
@@ -354,19 +330,6 @@ const DriverBus = () => {
             </div>
           )}
         </div>
-
-        {/* Action Button */}
-        {selectedBus && (
-          <div className="fixed bottom-8 right-8">
-            <button
-              onClick={handleStartTrip}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-3"
-            >
-              <span className="font-semibold">Start Trip</span>
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        )}
       </div>
     </div>
   )
